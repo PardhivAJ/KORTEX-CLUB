@@ -1,0 +1,5 @@
+import type { Event } from "../../types";
+import { formatShortDate, statusClass } from "../../utils/formatters";
+export default function EventTable({ events }: {events:Event[]}) {
+ return <div className="overflow-x-auto"><table className="w-full text-left text-sm"><thead><tr className="border-b border-slate-100 text-xs text-slate-400"><th className="px-5 py-3 font-semibold">Event</th><th className="px-5 py-3">Date</th><th className="px-5 py-3">Venue</th><th className="px-5 py-3">Status</th></tr></thead><tbody>{events.map(e=><tr key={e.id} className="border-b border-slate-50 last:border-0"><td className="px-5 py-4 font-semibold text-slate-800">{e.title}</td><td className="px-5 py-4 text-slate-500">{formatShortDate(e.date)}</td><td className="px-5 py-4 text-slate-500">{e.venue}</td><td className="px-5 py-4"><span className={`rounded-full px-2.5 py-1 text-xs font-semibold ${statusClass(e.status)}`}>{e.status}</span></td></tr>)}</tbody></table></div>;
+}

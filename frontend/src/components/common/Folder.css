@@ -1,0 +1,17 @@
+.folder-scale { width: 100px; height: 90px; display: inline-block; transform-origin: center; }
+.folder { cursor: pointer; transition: transform .2s ease-in; }
+.folder:hover, .folder.open { transform: translateY(-8px); }
+.folder:hover .paper { transform: translate(-50%, 0%); }
+.folder:hover .folder__front, .folder.open .folder__front { transform: skew(15deg) scaleY(.6); }
+.folder:hover .right, .folder.open .right { transform: skew(-15deg) scaleY(.6); }
+.folder.open .paper:nth-child(1) { transform: translate(calc(-120% + var(--magnet-x, 0px)), calc(-70% + var(--magnet-y, 0px))) rotate(-15deg); }
+.folder.open .paper:nth-child(2) { transform: translate(calc(10% + var(--magnet-x, 0px)), calc(-70% + var(--magnet-y, 0px))) rotate(15deg); height: 80%; }
+.folder.open .paper:nth-child(3) { transform: translate(calc(-50% + var(--magnet-x, 0px)), calc(-100% + var(--magnet-y, 0px))) rotate(5deg); height: 80%; }
+.folder__back { position: relative; width: 100px; height: 80px; background: var(--folder-back-color); border-radius: 0 10px 10px 10px; }
+.folder__back::after { content: ""; position: absolute; z-index: 0; bottom: 98%; left: 0; width: 30px; height: 10px; background: var(--folder-back-color); border-radius: 5px 5px 0 0; }
+.paper { position: absolute; z-index: 2; bottom: 10%; left: 50%; width: 70%; height: 80%; transform: translate(-50%, 10%); background: var(--paper-1); border-radius: 6px; transition: all .3s ease-in-out; overflow: hidden; }
+.paper:nth-child(2) { width: 80%; height: 70%; background: var(--paper-2); }
+.paper:nth-child(3) { width: 90%; height: 60%; background: var(--paper-3); }
+.folder__front { position: absolute; z-index: 3; width: 100%; height: 100%; background: var(--folder-color); border-radius: 5px 10px 10px 10px; transform-origin: bottom; transition: all .3s ease-in-out; }
+.folder:focus-visible { outline: 2px solid var(--folder-color); outline-offset: 4px; border-radius: 10px; }
+.folder-paper-label { display: block; padding: 7px 5px; font-size: 8px; font-weight: 800; color: #0f172a; text-align: center; }

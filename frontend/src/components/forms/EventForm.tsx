@@ -1,0 +1,6 @@
+import { useState } from "react";
+import type { Event } from "../../types";
+export default function EventForm({onSave}:{onSave:(event:Partial<Event>)=>void}) {
+ const [title,setTitle]=useState(""),[date,setDate]=useState(""),[venue,setVenue]=useState(""),[category,setCategory]=useState("Technology");
+ return <div className="space-y-4"><div><label className="mb-1 block text-sm font-semibold">Event title</label><input className="input" value={title} onChange={e=>setTitle(e.target.value)}/></div><div className="grid gap-4 sm:grid-cols-2"><div><label className="mb-1 block text-sm font-semibold">Date</label><input type="date" className="input" value={date} onChange={e=>setDate(e.target.value)}/></div><div><label className="mb-1 block text-sm font-semibold">Category</label><select className="input" value={category} onChange={e=>setCategory(e.target.value)}><option>Technology</option><option>Workshop</option><option>Competition</option><option>Career</option></select></div></div><div><label className="mb-1 block text-sm font-semibold">Venue</label><input className="input" value={venue} onChange={e=>setVenue(e.target.value)}/></div><button className="btn-primary w-full" onClick={()=>onSave({title,date,venue,category})} disabled={!title||!date||!venue}>Create event</button></div>;
+}

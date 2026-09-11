@@ -1,0 +1,16 @@
+.molten-metal-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.molten-metal-container canvas {
+  opacity: 1;
+  filter: brightness(1.18) saturate(1.12);
+}
+
+html[data-theme="normal"] .molten-metal-container canvas {
+  filter: brightness(1.45) saturate(1.3) contrast(1.05);
+}
